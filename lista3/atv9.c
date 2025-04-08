@@ -6,7 +6,7 @@ int main (){
     int normal, milhar, milhar_2, centena, centena_2, dezena, dezena_2, somado;
 
     printf("Qual é seu numero inteiro e positivo?");
-    scanf("%u", &normal);
+    scanf("%u", &normal);/* %U significa que é um numero inteiro POSITIVO. */
 
     milhar = normal / 1000;
     milhar_2 = normal % 1000;
