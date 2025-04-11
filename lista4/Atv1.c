@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main () {
-    float num;
+    int num;
     printf("Digite seu número: ");
-        scanf("%f", &num);
+        scanf("%d", &num);
     
     if (num > 0){
         printf("Seu numero é positivo");}
