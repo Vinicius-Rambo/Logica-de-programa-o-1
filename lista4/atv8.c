@@ -34,17 +34,17 @@ if(gen == 'F' || gen == 'f'){
 
 else if(gen =='M' || gen == 'm'){
      if(imc < 20){
-        printf("Abaixo do peso");
-    }
+        printf("Abaixo do peso");}
+
      else if(imc >= 20 && imc <= 24.9){
          printf("Peso normal");}
 
     else if(imc >= 25 && imc <= 29.9){
         printf("Obesidade leve");}
-        
+
     else if(imc >= 30 && imc <=39.9){
-        printf("Obesidade moderada");
-    }
-    else if(imc >= 40){
+        printf("Obesidade moderada");}
+    
+        else if(imc >= 40){
         printf("Obesidade mórbida");}}
     return 0;}      
