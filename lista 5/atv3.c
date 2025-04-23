@@ -2,7 +2,7 @@
 int main () {
     int mes;
 
-    printf("Qual o numero do seu mês? ");
+    printf("Qual o número do seu mês? ");
     scanf("%d", &mes);
 
 switch(mes){ 
