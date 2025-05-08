@@ -36,5 +36,4 @@ int main() {
     printf("Total de pessoas que gostaram: %d\n", gostou_cont);
     printf("Total de pessoas que recomendariam: %d\n", recomenda_cont);
 
-    return 0;
-}
+    return 0;}
