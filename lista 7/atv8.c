@@ -60,7 +60,9 @@ int main(){
         do {
             printf("\nDeseja continuar? [S/N] ");
             scanf(" %c", &continuar);
-             continuar = toupper(continuar);      
+             continuar = toupper(continuar);  
+                if (continuar != 'N' && continuar != 'S'){}
+                    
         } while (continuar != 'S' && continuar != 'N');
 
     i++;
