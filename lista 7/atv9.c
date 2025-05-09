@@ -5,7 +5,7 @@ int main(){
     char genero, olhos, cabelos;
     int idade, menor_idade, cont_homens = 0, cont_mulheres = 0, i = 1;
 
-    while (i <= 3){
+    while (i <= 50){
         printf("\nQuestionario das pessoas: %dº pessoa \n", i);
         
         do{
