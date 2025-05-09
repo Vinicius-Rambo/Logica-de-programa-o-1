@@ -22,13 +22,13 @@ do{
     else if (escolha == 'C'){ coritiba++; i++;}
     else if (escolha == 'F'){ foz++; i++;}
     else if (escolha == 'S'){ i--;}
-    else if (escolha != 'S'){
+    else if (escolha != 'S' && escolha != 'A' && escolha != 'C' && escolha != 'F'){
         printf("Resposta invalida tente novamente\n");}
 
     
 } while (escolha != 'S');
 
-    if(i > 1){
+    if(i >= 1){
 
     perc_atle = (float)atletico / i *100;
     perc_cori = (float)coritiba / i *100;
@@ -40,9 +40,8 @@ do{
     printf("F - Foz:      %d - %.2f%%\n", foz, perc_foz); 
     }
 
-        else{
+        else if(i == 0){
             printf("Nenhum torcedor votou");
         }
 
  return 0;}       
-
