@@ -61,7 +61,8 @@ int main(){
             printf("\nDeseja continuar? [S/N] ");
             scanf(" %c", &continuar);
              continuar = toupper(continuar);  
-                if (continuar != 'N' && continuar != 'S'){}
+                if (continuar != 'N' && continuar != 'S'){
+                    printf("Resposta invalida!");}
                     
         } while (continuar != 'S' && continuar != 'N');
 
