@@ -25,7 +25,7 @@ do{
 //Contador de homens e total de mulheres com suas idades
     if (genero == 'H'){cont_homens++;}
 
-    else if(genero == 'M'){
+    else{
         total_mulher += idade;
         cont_mulher++;}
 
