@@ -34,7 +34,7 @@ do{
     perc_cori = (float)coritiba / i *100;
     perc_foz = (float)foz / i *100;
 
-    printf("\nTotal dos entrevistados: %d\n", i);    
+    printf("\nTotal dos entrevistados validos: %d\n", i);    
     printf("A - atlético: %d - %.2f%%\n", atletico, perc_atle);
     printf("C - Coritiba: %d - %.2f%%\n", coritiba, perc_cori);
     printf("F - Foz:      %d - %.2f%%\n", foz, perc_foz); 
