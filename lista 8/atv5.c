@@ -36,11 +36,8 @@ int main() {
             if ((atual % 3 == 0) && (atual % 4 == 0)) {
                 divisiveis++;
                 soma_divisiveis += atual;
-            }
-        }
-    }
+            }}}
 
-    // Cálculo das médias (sem checagem de divisão por zero)
     media = soma / positivos;
     media_pares = soma_pares / pares;
     media_impares = soma_impares / impares;
