@@ -58,5 +58,4 @@ int main() {
     printf(" Média dos ímpares div. por 3 e 4:    %.2f\n", media_divisiveis);
     printf("----------------------------------------------\n");
 
-    return 0;
-}
+    return 0;}
