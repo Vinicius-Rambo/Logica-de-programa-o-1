@@ -6,7 +6,7 @@ int main() {
           somaA = 0, somaB = 0, somaC = 0, somaD = 0, somaE = 0,
           mediaA = 0, mediaB = 0, mediaC = 0, mediaD = 0, mediaE = 0;
 
-    for (i = 1; i <= 40; i++) {
+    for (i = 1; i <= 1; i++) {
         do {
             printf("Digite o Código do aluno %d: ", i);
             scanf("%d", &codigo);
@@ -42,7 +42,12 @@ int main() {
     mediaD = somaD / contD;
     mediaE = somaE / contE;
 
-    printf("\n--- Resultados Finais ---\n");
+   printf("  ____                 _ _            _                 _____ _             _     \n");
+   printf(" |  _ \\ ___  ___ _   _| | |_ __ _  __| | ___  ___      |  ___(_)_ __   __ _(_)___ \n");
+   printf(" | |_) / _ \\/ __| | | | | __/ _ |/ _ |/ _ \\/ __|     | |_  | | '_ \\ / _ | / __| \n");
+   printf(" |  _ <  __/\\__ \\ |_| | | || (_| | (_| | (_) \\__ \\     |  _| | | | | | (_| | \\__ \\ \n");
+   printf(" |_| \\_\\___||___/\\__,_|_|\\__\\__,_|\\__,_|\\___/|___/     |_|   |_|_| |_|\\__,_|_|___/ \n");
+   
     printf("Conceito A: %d alunos - Média: %.2f\n", contA, mediaA);
     printf("Conceito B: %d alunos - Média: %.2f\n", contB, mediaB);
     printf("Conceito C: %d alunos - Média: %.2f\n", contC, mediaC);
