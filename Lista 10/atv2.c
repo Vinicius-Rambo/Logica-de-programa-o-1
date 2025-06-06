@@ -32,7 +32,7 @@ int main(){
         case 3:
           for(j = 0; j < 3; j++) {
           printf("Valores da linha 3: \n");  
-          printf("%.2f\n", matriz[2][j]); }
+          printf("[%.2f]\t", matriz[2][j]); }
         break;
     }
 
