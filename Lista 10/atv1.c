@@ -5,7 +5,7 @@ int main(){
 
   for(i = 0; i < 8 ; i++) for(j = 0; j < 8 ; j++){
 
-    prinft("Digite o valor da matriz [%d] [%d]", i, j );
+    printf("Digite o valor da matriz [%d] [%d]", i, j );
     scanf("%d", &matriz [i][j]);
   }
 
@@ -17,7 +17,7 @@ menor = matriz[0][0];
    if(matriz[i][j] > maior) {
         maior = matriz[i][j] ;
    }
-   if(matriz[i][j] > menor) {
+   if(matriz[i][j] < menor) {
         maior = matriz[i][j] ;
    }
 
