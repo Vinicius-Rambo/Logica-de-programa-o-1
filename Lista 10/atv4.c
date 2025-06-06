@@ -22,13 +22,22 @@ int main(){
        for(j = 0; j < n; j++){
          t[j][i] = a[i][j]; 
         }
-    } 
+    }
     
-    printf("\nMatriz T: \n");
+    printf("\nMatriz A:\n\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            printf("[%d]\t", a[i][j]);
+        }
+        printf("\n");
+    }
+    
+    printf("\nMatriz T: \n\n");
     for(i = 0; i < n; i++){  for(j = 0; j < m; j++){ // n linhas e m colunas agora para poder fazer a mudança.
         printf("[%d]\t", t[i][j]);  }
 
     printf("\n");     
 }
+    
 
 return 0; }
