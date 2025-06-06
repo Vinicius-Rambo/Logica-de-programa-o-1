@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define TAM 3
+#define TAM 8
 int main(){
     int matriz[TAM][TAM], seletor, i, j, soma, pesquisa;
 
@@ -16,9 +16,9 @@ int main(){
     printf("[4] - Atribuir [0] para todo negativo encontrados fora da diagonal principal            \n");
     printf("[5] - Pesquisar na matriz               \n");
         do{
-            printf("Escolha uma opção de 1 a 6: ");
+            printf("Escolha uma opção de 1 a 5: ");
             scanf("%d", &seletor);
-        }while(seletor < 1 || seletor > 6);    
+        }while(seletor < 1 || seletor > 5);    
 
     switch(seletor){
 
