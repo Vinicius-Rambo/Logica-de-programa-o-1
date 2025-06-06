@@ -18,7 +18,7 @@ menor = matriz[0][0];
         maior = matriz[i][j] ;
    }
    if(matriz[i][j] < menor) {
-        maior = matriz[i][j] ;
+        menor = matriz[i][j] ;
    }
 
 
