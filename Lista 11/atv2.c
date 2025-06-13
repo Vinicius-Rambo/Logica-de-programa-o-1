@@ -26,7 +26,7 @@ int main(){
     printf("String 1: [%s]  String 2: [%s]\n", str1, str2);
     printf("String 3: [%s]\n", str3);
 
-    printf("Tamanho das strings: (considera espaço) \n");
+    printf("\nTamanho das strings: (considera espaço) \n");
     for(i = 0; i < 3; i++ ){
         printf("String %d: [%d]\n", i + 1, tam[i]);
     }

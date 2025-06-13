@@ -14,7 +14,7 @@ int main(){
     } }
  printf("\n - - - Resultados - - -\n");
  printf("String 1: [%s]\n", str1);
- printf("Quantidade de letras: O %d", qtd);
+ printf("Quantidade de letras O: %d", qtd);
 
  return 0;}   
 
