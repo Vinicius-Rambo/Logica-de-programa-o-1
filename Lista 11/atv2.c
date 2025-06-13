@@ -7,12 +7,12 @@ int main(){
     printf("- - - Concatenação de STRINGS (2ª na 1º)\n");
     printf("Digite a primeira String: ");
     fgets(str1, sizeof(str1), stdin);
-    str1[strcspn(str1, "\n")] = '\0'; // remove o \n
+    str1[strcspn(str1, "\n")] = '\0';  //remove o \n e substitui pelo \0 que finaliza o string
     tam[0] = strlen(str1);
 
     printf("Digite a segunda String: ");
     fgets(str2, sizeof(str2), stdin);
-    str2[strcspn(str2, "\n")] = '\0'; // remove o \n e substitui pelo \0 que finaliza o string
+    str2[strcspn(str2, "\n")] = '\0';
     tam[1] = strlen(str2);
 
     /*Concatenação com espaço entre as strings*/
