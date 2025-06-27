@@ -33,7 +33,7 @@ int main() {
         printf("[6] Sair\n");
         printf("Selecione: ");
         scanf("%d", &selecionar);
-
+        
         switch(selecionar) {
 
             case 1:
@@ -42,6 +42,7 @@ int main() {
                     printf("Limite de cadastros atingido.\n");
                     break;
                 }
+                    
                 //Numero de cadastro.
                 printf("\nCadastro:\n");
                 printf("Digite o código: ");
@@ -54,7 +55,7 @@ int main() {
                 cadastro[n].nome[strcspn(cadastro[n].nome, "\n")] = '\0';
 
                 do { // Genero com validador de Masculino e Feminino
-                    printf("Digite o gênero (M/F): ");
+                    printf("Digite o seu Sexo (M/F): ");
                     scanf(" %c", &cadastro[n].genero);
                     cadastro[n].genero = toupper(cadastro[n].genero);
                 } while(cadastro[n].genero != 'M' && cadastro[n].genero != 'F');
@@ -77,6 +78,11 @@ int main() {
                 break;
 
             case 2:
+            if(n == 0){
+                printf("Nenhum cadastro realizado.\n");
+                break;}
+                
+                else{
                 // Alterar cadastro
                 printf("Digite o código da pessoa que deseja alterar: ");
                 scanf("%d", &codBusca);
@@ -132,9 +138,15 @@ int main() {
                 }
                 if(i == n)
                     printf("Código não encontrado.\n");
+                }
                 break;
 
             case 3:
+                if(n == 0){
+                    printf("Nenhum cadastro realizado.\n");
+                    break;}
+
+                else{
                 // Excluir pessoa
                 printf("Digite o código da pessoa para excluir: ");
                 scanf("%d", &codBusca);
@@ -151,9 +163,14 @@ int main() {
                 }
                 if(i == n)
                     printf("Código não encontrado.\n");
+                }
                 break;
 
             case 4:
+                if(n == 0){
+                    printf("Nenhum cadastro realizado.\n");
+                    break;}
+                else{
                 // Mostrar cadastro especifico
                 printf("Digite o código da pessoa: ");
                 scanf("%d", &codBusca);
@@ -161,19 +178,19 @@ int main() {
                 for(i = 0; i < n; i++) {
                     if(cadastro[i].codigo == codBusca) {
                         printf("\nCadastro encontrado:\n");
-                        printf("Código: %d\n", cadastro[i].codigo);
-                        printf("Nome: %s\n", cadastro[i].nome);
-                        printf("Gênero: %c\n", cadastro[i].genero);
-                        printf("Idade: %d\n", cadastro[i].idade);
-                        printf("Altura: %.2f\n", cadastro[i].altura);
-                        printf("Peso: %.2f\n", cadastro[i].peso);
+                        printf(" |Código: %d\n", cadastro[i].codigo);
+                        printf(" |Nome: %s\n", cadastro[i].nome);
+                        printf(" |Gênero: %c\n", cadastro[i].genero);
+                        printf(" |Idade: %d\n", cadastro[i].idade);
+                        printf(" |Altura: %.2f\n", cadastro[i].altura);
+                        printf(" |Peso: %.2f\n", cadastro[i].peso);
                         break;
                     }
                 }
                 if(i == n)
                     printf("Código não encontrado.\n");
+                }
                 break;
-
             case 5:
                 // Mostrar todos os cadastros
                 if(n == 0)
@@ -182,12 +199,12 @@ int main() {
                     printf("\nTodos os cadastros:\n");
                     for(i = 0; i < n; i++) {
                         printf("\n%dº pessoa:\n", i+1);
-                        printf("Código: %d\n", cadastro[i].codigo);
-                        printf("Nome: %s\n", cadastro[i].nome);
-                        printf("Gênero: %c\n", cadastro[i].genero);
-                        printf("Idade: %d\n", cadastro[i].idade);
-                        printf("Altura: %.2f\n", cadastro[i].altura);
-                        printf("Peso: %.2f\n", cadastro[i].peso);
+                        printf(" |Código: %d\n", cadastro[i].codigo);
+                        printf(" |Nome: %s\n", cadastro[i].nome);
+                        printf(" |Gênero: %c\n", cadastro[i].genero);
+                        printf(" |Idade: %d\n", cadastro[i].idade);
+                        printf(" |Altura: %.2f\n", cadastro[i].altura);
+                        printf(" |Peso: %.2f\n", cadastro[i].peso);
                     }
                 }
                 break;
