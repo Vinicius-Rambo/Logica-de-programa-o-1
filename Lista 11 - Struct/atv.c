@@ -1,13 +1,11 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 
 #define TAM 100
 
-
-int n, i, selecao;
-int main(){
-struct Tpessoa{
+// Definição da struct TPessoa
+struct TPessoa {
     int codigo;
     char nome[100];
     char genero;
@@ -16,53 +14,186 @@ struct Tpessoa{
     float peso;
 };
 
-struct Tpessoa cadastro[TAM];
+int main() {
+    struct TPessoa cadastro[TAM];
+    int n = 0, opcao, i, j, codBusca;
+    char continuar = 'S';
 
-printf("--- Sistema de Cadastro - - -\n");
-do{
-    printf("\nMenu:\n");
-    printf("[1] Cadastrar Pessoa\n");
-    printf("[2] Alterar cadastro\n");
-    printf("[3] Excluir uma Pessoa\n");
-    printf("[4] Mostrar cadastro especifico\n");
-    printf("[5] Mostrar todos os cadastros\n");
-    printf("[6] Sair\n");
-    
-    do{
-    printf("Digite o número da opção: ");
-    scanf("%d", &selecao);
-    }while(selecao <= 0 && selecao >= 7);
+    printf("--- Sistema de Cadastro ---\n");
 
-    switch(selecao){
-        case 1:
-            printf("\nCadastro:\n");
-            printf("Digite a quantidade de cadastros: ");
-            scanf("%d", &n);
-                for(i =0; i < n; i++){
-                    
+    do {
+        printf("\nMenu:\n");
+        printf("[1] Cadastrar Pessoa\n");
+        printf("[2] Alterar cadastro\n");
+        printf("[3] Excluir uma Pessoa\n");
+        printf("[4] Mostrar cadastro especifico\n");
+        printf("[5] Mostrar todos os cadastros\n");
+        printf("[6] Sair\n");
+        printf("Selecione: ");
+        scanf("%d", &opcao);
+         // Limpa buffer
+
+        switch(opcao) {
+
+            case 1:
+                // Cadastro de pessoas
+                if(n >= TAM) {
+                    printf("Limite de cadastros atingido.\n");
+                    break;
                 }
+                printf("\nCadastro:\n");
+                printf("Digite o código: ");
+                scanf("%d", &cadastro[n].codigo);
+                
 
+                printf("Digite o nome: ");
+                fgets(cadastro[n].nome, sizeof(cadastro[n].nome), stdin);
+                cadastro[n].nome[strcspn(cadastro[n].nome, "\n")] = '\0';
 
+                do {
+                    printf("Digite o gênero (M/F): ");
+                    scanf(" %c", &cadastro[n].genero);
+                    cadastro[n].genero = toupper(cadastro[n].genero);
+                } while(cadastro[n].genero != 'M' && cadastro[n].genero != 'F');
 
+                printf("Digite a idade: ");
+                scanf("%d", &cadastro[n].idade);
 
+                printf("Digite a altura (m): ");
+                scanf("%f", &cadastro[n].altura);
 
+                printf("Digite o peso (kg): ");
+                scanf("%f", &cadastro[n].peso);
 
+                n++;
+                printf("Cadastro realizado com sucesso!\n");
+                break;
 
+            case 2:
+                // Alterar cadastro
+                printf("Digite o código da pessoa que deseja alterar: ");
+                scanf("%d", &codBusca);
 
+                for(i = 0; i < n; i++) {
+                    if(cadastro[i].codigo == codBusca) {
+                        int opAlterar;
+                        do {
+                            printf("\nMenu de Alteração:\n");
+                            printf("[1] Código\n[2] Nome\n[3] Gênero\n[4] Idade\n[5] Altura\n[6] Peso\n[0] Sair\n");
+                            printf("Escolha o campo para alterar: ");
+                            scanf("%d", &opAlterar);
+                            
 
-    }
+                            switch(opAlterar) {
+                                case 1:
+                                    printf("Novo código: ");
+                                    scanf("%d", &cadastro[i].codigo);
+                                    break;
+                                case 2:
+                                    printf("Novo nome: ");
+                                    fgets(cadastro[i].nome, sizeof(cadastro[i].nome), stdin);
+                                    cadastro[i].nome[strcspn(cadastro[i].nome, "\n")] = '\0';
+                                    break;
+                                case 3:
+                                    do {
+                                        printf("Novo gênero (M/F): ");
+                                        scanf(" %c", &cadastro[i].genero);
+                                        cadastro[i].genero = toupper(cadastro[i].genero);
+                                    } while(cadastro[i].genero != 'M' && cadastro[i].genero != 'F');
+                                    break;
+                                case 4:
+                                    printf("Nova idade: ");
+                                    scanf("%d", &cadastro[i].idade);
+                                    break;
+                                case 5:
+                                    printf("Nova altura (m): ");
+                                    scanf("%f", &cadastro[i].altura);
+                                    break;
+                                case 6:
+                                    printf("Novo peso (kg): ");
+                                    scanf("%f", &cadastro[i].peso);
+                                    break;
+                                case 0:
+                                    printf("Saindo da alteração...\n");
+                                    break;
+                                default:
+                                    printf("Opção inválida.\n");
+                            }
+                        } while(opAlterar != 0);
+                        break;
+                    }
+                }
+                if(i == n)
+                    printf("Código não encontrado.\n");
+                break;
 
+            case 3:
+                // Excluir pessoa
+                printf("Digite o código da pessoa para excluir: ");
+                scanf("%d", &codBusca);
 
-}while(opcao != 6)
-printf("desligando programa.....");
-return 0;}
+                for(i = 0; i < n; i++) {
+                    if(cadastro[i].codigo == codBusca) {
+                        for(j = i; j < n - 1; j++) {
+                            cadastro[j] = cadastro[j + 1];
+                        }
+                        n--;
+                        printf("Cadastro excluído.\n");
+                        break;
+                    }
+                }
+                if(i == n)
+                    printf("Código não encontrado.\n");
+                break;
 
+            case 4:
+                // Mostrar cadastro especifico
+                printf("Digite o código da pessoa: ");
+                scanf("%d", &codBusca);
 
+                for(i = 0; i < n; i++) {
+                    if(cadastro[i].codigo == codBusca) {
+                        printf("\nCadastro encontrado:\n");
+                        printf("Código: %d\n", cadastro[i].codigo);
+                        printf("Nome: %s\n", cadastro[i].nome);
+                        printf("Gênero: %c\n", cadastro[i].genero);
+                        printf("Idade: %d\n", cadastro[i].idade);
+                        printf("Altura: %.2f\n", cadastro[i].altura);
+                        printf("Peso: %.2f\n", cadastro[i].peso);
+                        break;
+                    }
+                }
+                if(i == n)
+                    printf("Código não encontrado.\n");
+                break;
 
+            case 5:
+                // Mostrar todos os cadastros
+                if(n == 0)
+                    printf("Nenhum cadastro realizado.\n");
+                else {
+                    printf("\nTodos os cadastros:\n");
+                    for(i = 0; i < n; i++) {
+                        printf("\n%dº pessoa:\n", i+1);
+                        printf("Código: %d\n", cadastro[i].codigo);
+                        printf("Nome: %s\n", cadastro[i].nome);
+                        printf("Gênero: %c\n", cadastro[i].genero);
+                        printf("Idade: %d\n", cadastro[i].idade);
+                        printf("Altura: %.2f\n", cadastro[i].altura);
+                        printf("Peso: %.2f\n", cadastro[i].peso);
+                    }
+                }
+                break;
 
+            case 6:
+                printf("Saindo do programa...\n");
+                break;
 
-    
+            default:
+                printf("Opção inválida.\n");
+        }
 
+    } while(opcao != 6);
 
-
-return 0; }
+    return 0;
+}
