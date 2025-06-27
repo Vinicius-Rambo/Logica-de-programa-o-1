@@ -4,19 +4,21 @@
 
 #define TAM 100
 
-// Definição da struct TPessoa
-struct TPessoa {
-    int codigo;
-    char nome[100];
-    char genero;
-    int idade;
-    float altura;
-    float peso;
-};
-
 int main() {
+
+    // Definição da struct TPessoa
+    struct TPessoa {
+        int codigo;
+        char nome[TAM];
+        char genero;
+        int idade;
+        float altura;
+        float peso;
+    };
+
     struct TPessoa cadastro[TAM];
-    int n = 0, opcao, i, j, codBusca;
+    int n = 0, selecionar, i, j, codBusca;
+    int opAlterar;
     char continuar = 'S';
 
     printf("--- Sistema de Cadastro ---\n");
@@ -30,10 +32,9 @@ int main() {
         printf("[5] Mostrar todos os cadastros\n");
         printf("[6] Sair\n");
         printf("Selecione: ");
-        scanf("%d", &opcao);
-         // Limpa buffer
+        scanf("%d", &selecionar);
 
-        switch(opcao) {
+        switch(selecionar) {
 
             case 1:
                 // Cadastro de pessoas
@@ -41,26 +42,32 @@ int main() {
                     printf("Limite de cadastros atingido.\n");
                     break;
                 }
+                //Numero de cadastro.
                 printf("\nCadastro:\n");
                 printf("Digite o código: ");
                 scanf("%d", &cadastro[n].codigo);
                 
-
+                //Nome da pessoa
+                getchar();  // Apaga o ENTER anterior
                 printf("Digite o nome: ");
                 fgets(cadastro[n].nome, sizeof(cadastro[n].nome), stdin);
                 cadastro[n].nome[strcspn(cadastro[n].nome, "\n")] = '\0';
 
-                do {
+                do { // Genero com validador de Masculino e Feminino
                     printf("Digite o gênero (M/F): ");
                     scanf(" %c", &cadastro[n].genero);
                     cadastro[n].genero = toupper(cadastro[n].genero);
                 } while(cadastro[n].genero != 'M' && cadastro[n].genero != 'F');
 
+                do{ //Idade com limitador de 0 á 150.
                 printf("Digite a idade: ");
                 scanf("%d", &cadastro[n].idade);
+                }while(cadastro[n].idade < 0 || cadastro[n].idade >= 150);
 
+                do{ // Altura com limitador até 2.70 M
                 printf("Digite a altura (m): ");
                 scanf("%f", &cadastro[n].altura);
+                } while(cadastro[n].altura <= 0 || cadastro[n].altura >= 2.70);
 
                 printf("Digite o peso (kg): ");
                 scanf("%f", &cadastro[n].peso);
@@ -76,10 +83,9 @@ int main() {
 
                 for(i = 0; i < n; i++) {
                     if(cadastro[i].codigo == codBusca) {
-                        int opAlterar;
                         do {
                             printf("\nMenu de Alteração:\n");
-                            printf("[1] Código\n[2] Nome\n[3] Gênero\n[4] Idade\n[5] Altura\n[6] Peso\n[0] Sair\n");
+                            printf("[1] Código\n[2] Nome\n[3] Gênero\n[4] Idade\n[5] Altura\n[6] Peso\n[7] Sair\n");
                             printf("Escolha o campo para alterar: ");
                             scanf("%d", &opAlterar);
                             
@@ -90,6 +96,7 @@ int main() {
                                     scanf("%d", &cadastro[i].codigo);
                                     break;
                                 case 2:
+                                    getchar();  // Apaga o ENTER anterior
                                     printf("Novo nome: ");
                                     fgets(cadastro[i].nome, sizeof(cadastro[i].nome), stdin);
                                     cadastro[i].nome[strcspn(cadastro[i].nome, "\n")] = '\0';
@@ -113,13 +120,13 @@ int main() {
                                     printf("Novo peso (kg): ");
                                     scanf("%f", &cadastro[i].peso);
                                     break;
-                                case 0:
+                                case 7:
                                     printf("Saindo da alteração...\n");
                                     break;
                                 default:
                                     printf("Opção inválida.\n");
                             }
-                        } while(opAlterar != 0);
+                        } while(opAlterar != 7);
                         break;
                     }
                 }
@@ -193,7 +200,7 @@ int main() {
                 printf("Opção inválida.\n");
         }
 
-    } while(opcao != 6);
+    } while(selecionar != 6);
 
     return 0;
 }
