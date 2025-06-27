@@ -201,15 +201,4 @@ int main() {
         }
 
     } while(selecionar != 6);
-
-
-
-
-
-
-
-
-
-
-
     return 0;}
