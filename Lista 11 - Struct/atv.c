@@ -9,7 +9,7 @@ int main() {
     // Definição da struct TPessoa
     struct TPessoa {
         int codigo;
-        char nome[TAM];
+        char nome[200];
         char genero;
         int idade;
         float altura;
